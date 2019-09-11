@@ -1,18 +1,16 @@
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * lixiang
- * 2019-9-11
+ * 2019-9-11 13:26:18
  */
 
 /**
  * 解析在文本文档中类似于excel格式的表格数据
- * 由于在个别文本中的特殊性，需要将除标题外的行中的数据的前两列合并成一列，合并使用的changeList()方法，可以在40行左右修改
+ * 由于在个别文本中的特殊性，需要将除标题外的行中的数据的前两列合并成一列，合并使用的changeList()方法，可以在34行左右修改
  */
 public class ParsedTextTable {
 
@@ -28,20 +26,8 @@ public class ParsedTextTable {
 
             while ((line = bufferedReader.readLine()) != null) {
 
-                char[] chars = line.toCharArray();
-                ArrayList<String> tempList = new ArrayList<>();
-                String tempStr = "";
-
-                for (int i = 0; i < chars.length; i++) {
-                    if (("" + chars[i]).indexOf(" ") == -1 && ("" + chars[i]).indexOf("\t") == -1) {
-                        tempStr += String.valueOf(chars[i]);
-                    } else {
-                        tempList.add(tempStr);
-                        tempStr = "";
-                    }
-                }
-
-                tempList.add(tempStr);
+                String[] strArr=line.split("\\s+");
+                List<String> tempList = new ArrayList<>(Arrays.asList(strArr));
 
                 //从第二行开始的数据，前两列合并起来
                 if (strList.size() != 0) {
