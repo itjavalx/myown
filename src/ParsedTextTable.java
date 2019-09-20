@@ -92,7 +92,7 @@ public class ParsedTextTable {
      * @param list
      * @return
      */
-    public List<String> changeList(List<String> list) {
+    private List<String> changeList(List<String> list) {
         list.set(0, list.get(0) + list.get(1));
         list.remove(1);
         return list;
