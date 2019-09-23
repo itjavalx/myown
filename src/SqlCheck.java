@@ -14,7 +14,7 @@ public class SqlCheck{
 	private static String scriptInjStr = "\"|<|>|script|alert|delete|clear|function|return|onfocus|onclick|onerror|onblur|onkeydown|onload|onkeypress|onkeyup|onmouseover|onmouseup|onmousedown|onsubmit";
 	  
 	
-	@Around("execution(* com.dianju.modules.*.models.*Impl.*(..))")
+	@Around("execution(* com.xl.modules.*.models.*Impl.*(..))")
 	public Object before(ProceedingJoinPoint PJ) throws Throwable {
 	    String methodName = PJ.getSignature().getName();
 	    if(!methodName.equals("getDepartmentTree")){
