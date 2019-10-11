@@ -26,7 +26,7 @@ public class ParsedTextTable {
 
             while ((line = bufferedReader.readLine()) != null) {
 
-                String[] strArr=line.split("\\s+");
+                String[] strArr=line.split("\\s");
                 List<String> tempList = new ArrayList<>(Arrays.asList(strArr));
 
                 //从第二行开始的数据，前两列合并起来
